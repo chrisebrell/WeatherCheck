@@ -8,7 +8,7 @@ Group Milestone Project #2
     Mary Imarenezor
     Jazebel Cuevas
 
-## PROMPT: Creating a MERN stack application using React, Redux, and postgreSQL
+## PROMPT: Creating a MERN stack application with full CRUD functionality using React, Redux, and postgreSQL
 
 ## SKILLS: (examples: JS, SQL, HTML, Sequelize, etc)
 ## FEATURES:
