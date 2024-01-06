@@ -11,18 +11,7 @@ Group Milestone Project #2
 ## PROMPT: Creating a MERN stack application with full CRUD functionality using React, Redux, and postgreSQL
 
 ## SKILLS: (examples: JS, SQL, HTML, Sequelize, etc)
-## FEATURES:
--
--
--
-## CREDITS (who did what):
--
--
--
-## BUGS:
--
--
--
+
 ## ABOUT:
 
 ## GETTING STARTED:
@@ -41,3 +30,16 @@ Group Milestone Project #2
 ### Usage:
 1. Run `npm start` to start the server
 2. Open your browser and navigate to [localhost:3000]
+
+## FEATURES:
+-
+-
+-
+## CREDITS (who did what):
+-
+-
+-
+## BUGS:
+-
+-
+-
