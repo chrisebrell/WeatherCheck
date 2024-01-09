@@ -1,8 +1,11 @@
+//AsideTwo Component - used for displaying other pieces of information
+
+//DEPENDENCIES
 import '../styles.css'
 
 function AsideTwo() {
     return (
-        <div>
+        <div className="container">
             AsideTwo
         </div>
     )
