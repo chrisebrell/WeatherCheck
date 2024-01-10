@@ -1,4 +1,12 @@
-h1 {
+/* The CSS will be adjusted overtime when funcitonality piles in  */
+/* This CSS File is for the styling of the Main, AsideOne, and AsideTwo Components  */
+
+/* Styling for the Main, AsideOne, and AsideTwo Components */
+.container {
     display: flex;
-    justify-content: center;
+    float: left;
+    flex-flow: column;
+    margin-left: 200px;
+    margin-right: 200px;
+    align-content: center;
 }
