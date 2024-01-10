@@ -3,6 +3,7 @@ import SearchBar from './Components/HeaderNav/SearchBar';
 import AsideOne from './Components/AsideOne';
 import AsideTwo from './Components/AsideTwo';
 import Main from './Components/Main';
+import ZipcodeInputPage from './ZipcodeInputPage';
 import './styles.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <AsideOne />
       <Main />
       <AsideTwo />
+      <ZipcodeInputPage />
     </div>
   );
 }
