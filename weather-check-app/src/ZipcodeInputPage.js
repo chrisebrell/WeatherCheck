@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ZipcodeInputPage.css';
 
+
 const ZipcodeInputPage = () => {
   const [zipcode, setZipcode] = useState('');
 
@@ -35,6 +36,8 @@ const ZipcodeInputPage = () => {
         </button>
       </form>
     </div>
+
+    
   );
 };
 
