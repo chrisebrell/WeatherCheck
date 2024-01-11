@@ -20,8 +20,8 @@ const Weather = mongoose.model('Weather', weatherSchema)
 // API endpoint to get weather data
 app.get('/api/weather/:city', async (req, res) => {
     const city = req.params.city;
-    const apiKey = ''
-    const apiUrl = '' 
+    const apiKey = 'fd953eddf6f83f966d9240b60bd6fb26'
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`; 
 
     try {
         const response = await axios.get(apiUrl);
