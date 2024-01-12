@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherCard from './WeatherCard';
+import NavBar from './Components/NavBar';
+import Aside from './Components/Aside';
+import './styles.css'
 
 const WeatherApp = () => {
   const [zipCode, setZipCode] = useState('');
@@ -23,17 +26,27 @@ const WeatherApp = () => {
   };
 
   return (
-    <div>
-      <h1>Weather App</h1>
-      <input
-        type="text"
-        placeholder="Enter ZIP Code"
-        value={zipCode}
-        onChange={handleZipCodeChange}
-      />
-      <button onClick={getWeatherData}>Get Weather</button>
+    <div className="appContainer">
+      <div className="navbarContainer">
+        <h1 className="navbarItem">WeatherCheck</h1>
+        
+        <input
+          className="navbarItem"
+          type="text"
+          placeholder="Enter ZIP Code"
+          value={zipCode}
+          onChange={handleZipCodeChange}
+        />
+        <button className="navbarItem" onClick={getWeatherData}>Get Weather</button>
 
-      {weatherData && <WeatherCard weatherData={weatherData} />}
+      <NavBar />
+      </div>
+
+      <Aside zipCode={zipCode} weatherData={weatherData} />
+
+      <div className="mainContainer">
+        {weatherData && <WeatherCard weatherData={weatherData} />}
+      </div>
     </div>
   );
 };
