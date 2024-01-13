@@ -1,12 +1,42 @@
-/* The CSS will be adjusted overtime when funcitonality piles in  */
-/* This CSS File is for the styling of the Main, AsideOne, and AsideTwo Components  */
+/* CSS code for displaying a temporary box around the containers */
+[class*=Container] {
+    border: 2px solid rgb(196, 71, 109);
+}
 
-/* Styling for the Main, AsideOne, and AsideTwo Components */
-.container {
+/* CSS code for the NavBar */
+.navbarContainer {
     display: flex;
     float: left;
-    flex-flow: column;
-    margin-left: 200px;
-    margin-right: 200px;
-    align-content: center;
+    padding-left: 15px;
+    padding-right: 50px;
 }
+.navbarItem {
+    padding-left: 48px;
+    padding-right: 48px;
+}
+a.navbarItem {
+    font-size: 17px;
+}
+
+img.navbarItem {
+    width: 28vh;
+    height: 8vh;
+}
+
+/* CSS code for the Main and Aside */
+.asideContainer, .mainContainer {
+    display: flex;
+    float: left;
+    align-content: stretch;
+    align-items: stretch;
+    margin: 10px;
+}
+
+
+/* CSS code for Main */
+
+/* CSS code for Aside */
+.asideContainer {
+    padding: 10px 40px 600px 40px;
+}
+
