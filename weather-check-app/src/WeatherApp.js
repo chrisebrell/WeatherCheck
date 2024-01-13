@@ -5,6 +5,7 @@ import WeatherCard from './WeatherCard';
 import NavBar from './Components/NavBar';
 import Aside from './Components/Aside';
 import './styles.css'
+import logo from "./images/weathercheck-logo-final.png"
 
 const WeatherApp = () => {
   const [zipCode, setZipCode] = useState('');
@@ -28,7 +29,7 @@ const WeatherApp = () => {
   return (
     <div className="appContainer">
       <div className="navbarContainer">
-        <h1 className="navbarItem">WeatherCheck</h1>
+        <img className="navbarItem" src={logo} alt="weathercheck logo" />
         
         <input
           className="navbarItem"
