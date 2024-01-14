@@ -38,58 +38,58 @@ function Aside() {
     */
 
 
-    let [message, setMessage] = useState("Type in ZipCode to get suggestions for attire!")
-
-    /* COMMENTED OUT TO KEEP THE SITE FROM CRASHING. FINISH CODING THIS LATER
-    const { zipCode } = useParams()*/
-
-    setMessage = ({ WeatherData }) => {
-        try {
-            //MESSAGES FOR TEMPERATURE
-            if (WeatherData.main.temp > 100) {
-                message = "It's hot.... like really hot... leathers not recommended at all..."
-            } else if(WeatherData.main.temp < 70) {
-                message = "it's warm today! No need for bundling up"
-            } else if(WeatherData.main.temp < 45) {
-                message = "It's not that cold outside today, but a small sweater will do"
-            } else if(WeatherData.main.temp < 20) {
-                message = "Brrr, chilly! try putting on a Jacket!"
-            } else {
-                message = ""
-            }
-
-            //MESSAGES FOR DESCRIPTION - tell the users what to bring/buy
-            if (WeatherData.weather[0].description == "clear sky") {
-                message = "You might want to get some sunglasses"
-            } else if (WeatherData.weather[0].description == "shower rain") {
-                message = "Make sure you have an umbrella"
-            } else if (WeatherData.weather[0].description == "rain" && WeatherData.weather[0].description == "thunderstorm") {
-                message = "Grab an umbrella! It's pouring!"
-            } else if (WeatherData.weather[0].description == "snow") {
-                message = "get your snowboots 'cause its snowin outside."
-            } else {
-                message =""
-            }
-
-        } catch (error) {
-            message = "No zipcode, no attire suggestions. sorry..."
+        
+            let [message, setMessage] = useState("Type in ZipCode to get suggestions for attire!")
+            let [description, setDescription] = useState("");
+        
+            const getWeaterDetails = ({ WeatherData }) => {
+            let  weatherMessage = "";
+            let weatherDescription = "";
+                try {
+                    if (WeatherData.main.temp > 100) {
+                        weatherMessage = "It's hot.... like really hot... leathers not recommended at all..."
+                    } else if(WeatherData.main.temp < 70) {
+                        weatherMessage = "it's warm today! No need for bundling up"
+                    } else if(WeatherData.main.temp < 45) {
+                        weatherMessage = "It's not that cold outside today, but a small sweater will do"
+                    } else if(WeatherData.main.temp < 20) {
+                        weatherMessage = "Brrr, chilly! try putting on a Jacket!"
+                    } else {
+                        weatherMessage = ""
+                    }
+        
+                    if (WeatherData.weather[0].description === "clear sky") {
+                        weatherDescription = "You might want to get some sunglasses"
+                    } else if (WeatherData.weather[0].description === "shower rain") {
+                        weatherDescription = "Make sure you have an umbrella"
+                    } else if (WeatherData.weather[0].description === "rain" && WeatherData.weather[0].description === "thunderstorm") {
+                        weatherDescription = "Grab an umbrella! It's pouring!"
+                    } else if (WeatherData.weather[0].description === "snow") {
+                        weatherDescription = "get your snowboots 'cause its snowin outside."
+                    } else {
+                        weatherDescription =""
+                    }
+                    setMessage(weatherMessage);
+                    setDescription(weatherDescription);
+        
+                } catch (error) {
+                    weatherMessage = "No zipcode, no attire suggestions. sorry..."
+                }
+            };
+        
+            
+        
+        
+        
+            return (
+                <div className='asideContainer'>
+                    {message}
+                    {description}
+                </div>
+            )
         }
-    }
-
-    
-    /* COMMENTED OUT TO KEEP THE SITE FROM CRASHING. FINISH CODING THIS LATER
-    useEffect(() => {
-        setMessage()
-    }, [zipCode])*/
-
-    return (
-        <div className='asideContainer'>
-            {message}
-        </div>
-    )
-}
-
-
-
-
-export default Aside
+        
+        
+        
+        
+        export default Aside
