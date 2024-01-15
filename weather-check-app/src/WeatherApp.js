@@ -39,6 +39,7 @@ const WeatherApp = () => {
         `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=fd953eddf6f83f966d9240b60bd6fb26&units=imperial`
       );
       setWeatherData(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
