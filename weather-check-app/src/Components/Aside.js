@@ -42,7 +42,7 @@ function Aside() {
             let [message, setMessage] = useState("Type in ZipCode to get suggestions for attire!")
             let [description, setDescription] = useState("");
         
-            const getWeaterDetails = ({ WeatherData }) => {
+            const getWeatherDetails = ({ WeatherData }) => {
             let  weatherMessage = "";
             let weatherDescription = "";
                 try {

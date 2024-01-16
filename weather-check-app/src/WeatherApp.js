@@ -65,8 +65,10 @@ const WeatherApp = () => {
   return (
     <div className="appContainer">
       <div className="navbarContainer">
-        <img className="navbarItem" src={logo} alt="weathercheck logo" />
-        
+        {/* <img className="navbarItem" src={logo} alt="weathercheck logo" /> */}
+        <a href="/">
+    <img className="navbarItem" src={logo} alt="weathercheck logo" />
+  </a>
         <input
           className="navbarItem"
           type="text"
