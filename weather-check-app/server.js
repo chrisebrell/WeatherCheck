@@ -1,9 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
+const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+//middleware to parse json data
+app.use(express.json());
+
+//use cors middleware
+app.use(cors());
 
 // Connect to MongoDB
 mongoose.connect('mongodb://0.0.0.0:27017/weather-app', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -57,6 +64,23 @@ app.get('/api/weather/:zip', async (req, res) => {
         res.status(500).json(error);
     }
 });
+
+//endpoint to save zip code
+app.post('/api/save-zipcode', async (req, res) => {
+    const { zip } = req.body;
+
+    try {
+        const newFavorite = new Favorite({
+            zip: zip,
+            dateAdded: new Date().toISOString()
+        })
+        await newFavorite.save();
+        res.status(201).json({ message: 'ZIP code saved successfully' })
+    } catch (error) {
+        console.error('Error saving ZIP code:', error);
+        res.status(500).json({ message: 'Internal server error' })
+    }
+})
 
 // About page
 app.get('/api/weather/about', async (req, res) => {
