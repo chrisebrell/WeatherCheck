@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherCard from './WeatherCard';
 import NavBar from './Components/NavBar';
-import Aside from './Components/Aside';
 import './styles.css'
 import logo from "./images/weathercheck-logo-final.png"
 
@@ -115,8 +114,6 @@ const WeatherApp = () => {
 
       <NavBar />
       </div>
-
-      <Aside zipCode={zipCode} weatherData={weatherData} />
 
       <div className="mainContainer">
         {error && <p className="error-message">{error}</p>}
