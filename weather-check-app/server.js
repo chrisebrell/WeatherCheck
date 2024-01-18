@@ -82,15 +82,23 @@ app.post('/api/save-zipcode', async (req, res) => {
     }
 })
 
-// About page
-app.get('/api/weather/about', async (req, res) => {
+// endpoint for favorites
+app.get('/api/favorite-list', async (req, res) => {
+    const list = await Favorite.find();
     
+    res.status(200).json(list)
 });
 
 
 //app.delete
-app.delete('/api/weather/delete', async (req, res) => {
-
+app.delete('/api/favorite/:id', async (req, res) => {
+    try {
+        const result = await Favorite.findOneAndDelete({ _id: req.params.id }).exec();
+    res.status(200).json(result);
+    } catch (error) {
+                console.error('Error deleting ZIP code:', error);
+        res.status(500).json({ message: error.message })
+    }
 });
 
 
