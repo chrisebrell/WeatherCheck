@@ -7,14 +7,16 @@
     background-color: rgb(138, 179, 232);
 }
 .navbarItem {
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 34px;
+    padding-right: 34px;
 
 }
 a.navbarItem {
     font-size: 17px;
+    text-align: center;
     color:white;
     text-decoration: none;
+    padding-top: 30px;
 
 }
 
