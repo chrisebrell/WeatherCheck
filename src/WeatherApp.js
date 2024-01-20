@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherCard from './WeatherCard';
 import NavBar from './Components/NavBar';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import Favorites from './Components/Favorites';
 import './styles.css'
 import logo from "./images/weathercheck-logo-final.png"
 
@@ -91,36 +93,54 @@ const WeatherApp = () => {
   }
 
   return (
-    <div className="appContainer">
-      <div className="navbarContainer">
-        {/* <img className="navbarItem" src={logo} alt="weathercheck logo" /> */}
-        <a href="/">
-    <img className="navbarItem" src={logo} alt="weathercheck logo" />
-  </a>
-        <input
-          className="navbarItem"
-          type="text"
-          placeholder="Enter ZIP Code"
-          value={zipCode}
-          onChange={handleZipCodeChange}
-        />
-        <button className="navbarItem" onClick={getWeatherData} disabled={loading}>
-          {loading ? 'Fetching...' : 'Get Weather'}
-        </button>
+    <Router>
+      <div className="appContainer">
+        <div className="navbarContainer">
+          <Link className="navbarItem" to="/">
+            Home
+          </Link>
+          <Link className="navbarItem" to="/favorites">
+            Favorites
+          </Link>
+          <a href="/">
+            <img className="navbarItem" src={logo} alt="weathercheck logo" />
+          </a>
+          <input
+            className="navbarItem"
+            type="text"
+            placeholder="Enter ZIP Code"
+            value={zipCode}
+            onChange={handleZipCodeChange}
+          />
+          <button className="navbarItem" onClick={getWeatherData} disabled={loading}>
+            {loading ? 'Fetching...' : 'Get Weather'}
+          </button>
+          <button className="navbarItem" onClick={handleGeolocationClick} disabled={loading}>
+            Use Current Location
+          </button>
+          <NavBar />
+        </div>
 
-        <button className="navbarItem" onClick={handleGeolocationClick} disabled={loading}>
-          Use Current Location
-        </button>
-
-      <NavBar />
+        <div className="mainContainer">
+          <Routes>
+            <Route
+              path="/favorites"
+              element={<Favorites />}
+            />
+            <Route
+              path="/"
+              element={
+                <>
+                  {error && <p className="error-message">{error}</p>}
+                  {loading && <p>Loading...</p>}
+                  {weatherData && <WeatherCard weatherData={weatherData} />}
+                </>
+              }
+            />
+          </Routes>
+        </div>
       </div>
-
-      <div className="mainContainer">
-        {error && <p className="error-message">{error}</p>}
-        {loading && <p>Loading...</p>}
-        {weatherData && <WeatherCard weatherData={weatherData} />}
-      </div>
-    </div>
+    </Router>
   );
 };
 

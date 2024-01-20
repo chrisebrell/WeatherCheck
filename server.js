@@ -84,22 +84,27 @@ app.post('/api/save-zipcode', async (req, res) => {
 
 // endpoint for favorites
 app.get('/api/favorite-list', async (req, res) => {
-    const list = await Favorite.find();
-    
-    res.status(200).json(list)
+    try {
+        const list = await Favorite.find();
+        res.status(200).json(list);
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
 });
 
-
-//app.delete
+//app.delete favorite by ID
 app.delete('/api/favorite/:id', async (req, res) => {
     try {
         const result = await Favorite.findOneAndDelete({ _id: req.params.id }).exec();
-    res.status(200).json(result);
+        res.status(200).json(result);
     } catch (error) {
-                console.error('Error deleting ZIP code:', error);
-        res.status(500).json({ message: error.message })
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 });
+
+
 
 
 app.listen(PORT, () => {
