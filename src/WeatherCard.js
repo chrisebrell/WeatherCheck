@@ -1,10 +1,33 @@
-// src/components/WeatherCard.js
 import React from 'react';
-import suggestClothing from './clothingSuggestions';
 
 const WeatherCard = ({ weatherData }) => {
 
   const getIconUrl = (iconCode) => `http://openweathermap.org/img/w/${iconCode}.png`;
+
+  const getTemperatureCategory = (temp) => {
+    if (temp < 50) {
+      return 'cold';
+    } else if (temp >= 50 && temp < 75) {
+      return 'moderate';
+    } else {
+      return 'warm';
+    }
+  };
+
+  const getSuggestedClothing = (temp, description) => {
+    const temperatureCategory = getTemperatureCategory(temp);
+
+    switch (temperatureCategory) {
+      case 'cold':
+        return 'Bundle up! Wear warm layers.';
+      case 'moderate':
+        return 'Wear a light jacket or sweater.';
+      case 'warm':
+        return 'Dress lightly and stay cool.';
+      default:
+        return 'Check weather conditions for clothing advice.';
+    }
+  };
 
   return (
     <div>
@@ -18,7 +41,7 @@ const WeatherCard = ({ weatherData }) => {
       <p>Cloud Coverage: {weatherData.clouds.all}%</p>
       <p>Atmospheric Pressure: {weatherData.main.pressure} hPa</p>
 
-      <p>Suggested Clothing: {suggestClothing(weatherData.main.temp, weatherData.weather[0].description)}</p>
+      <p>Suggested Clothing: {getSuggestedClothing(weatherData.main.temp, weatherData.weather[0].description)}</p>
 
     </div>
   );
