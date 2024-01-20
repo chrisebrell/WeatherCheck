@@ -41,7 +41,7 @@ WeatherCheck gives you a quick check-in on what the weather is like based on you
 ## CREDITS (who did what):
 - Mary: Logo Design, CSS, Website Wireframing, Front-end Development
 - Jezebel: 
-- Zach:
+- Zach: API Management, Front-end Development, Feature Building
 - Warlie:
 - Chris:
 ## BUGS:
