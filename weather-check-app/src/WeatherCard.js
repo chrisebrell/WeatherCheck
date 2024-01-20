@@ -6,8 +6,6 @@ const WeatherCard = ({ weatherData }) => {
 
   const getIconUrl = (iconCode) => `http://openweathermap.org/img/w/${iconCode}.png`;
 
-  
-
   return (
     <div>
       <h2>{weatherData.name}</h2>
