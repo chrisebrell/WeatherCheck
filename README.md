@@ -43,7 +43,7 @@ WeatherCheck gives you a quick check-in on what the weather is like based on you
 - Jezebel: 
 - Zach: API Management, Front-end Development, Feature Building
 - Warlie:
-- Chris:
+- Chris: Backend Routing, Database Configuring, Application Deployment
 ## BUGS:
 -
 -
