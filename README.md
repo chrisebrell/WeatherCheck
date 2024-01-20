@@ -42,7 +42,7 @@ WeatherCheck gives you a quick check-in on what the weather is like based on you
 - Mary: Logo Design, CSS, Website Wireframing, Front-end Development
 - Jezebel: 
 - Zach: API Management, Front-end Development, Feature Building
-- Warlie:
+- Warlie:Backend development assist
 - Chris: Backend Routing, Database Configuring, Application Deployment
 ## BUGS:
 -
