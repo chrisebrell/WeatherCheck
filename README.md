@@ -33,10 +33,13 @@ WeatherCheck gives you a quick check-in on what the weather is like based on you
 2. Open your browser and navigate to [localhost:3000]
 
 ## TECHNOLOGIES USED:
--JAVASCRIPT
+-JAVASCRIPT(NODE.JS)
 -HTML
 -CSS (w/ BOOTSTRAP)
 -REACT
+-EXPRESS
+-AXIOS
+-MONGODB
 
 ## API DETAILS:
 -API uses id OpenWeatherApi. OWA was used to pull current weather and show details and clothing suggestions based on the result.

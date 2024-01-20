@@ -12,9 +12,9 @@ return (
         <Navbar.Toggle style={{ visibility:"hidden" }} />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-            <Nav.Link className="navbarItem" href="/">Home</Nav.Link>
+            {/* <Nav.Link className="navbarItem" href="/">Home</Nav.Link>
             <Nav.Link className="navbarItem" href="">About</Nav.Link>
-            <Nav.Link className="navbarItem" href="">Favorites</Nav.Link>
+            <Nav.Link className="navbarItem" href="">Favorites</Nav.Link> */}
         </Nav>
         </Navbar.Collapse>
     </Container>

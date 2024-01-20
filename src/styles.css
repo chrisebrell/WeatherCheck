@@ -1,7 +1,7 @@
 /* CSS code for the NavBar */
 .navbarContainer {
     display: flex;
-    float: left;
+    float: center;
     padding-left: 15px;
     padding-right: 50px;
     background-color: rgb(138, 179, 232);
