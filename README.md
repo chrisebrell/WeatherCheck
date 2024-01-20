@@ -32,12 +32,21 @@ WeatherCheck gives you a quick check-in on what the weather is like based on you
 1. Run `npm start` to start the server
 2. Open your browser and navigate to [localhost:3000]
 
+## TECHNOLOGIES USED:
+-JAVASCRIPT
+-HTML
+-CSS (w/ BOOTSTRAP)
+-REACT
+
+## API DETAILS:
+-API uses id OpenWeatherApi. OWA was used to pull current weather and show details and clothing suggestions based on the result.
+
 ## FEATURES:
 - Getting a weather location based on Zipcode or your current location
 - Attire suggestions
 -
 -
--
+
 ## CREDITS (who did what):
 - Mary: Logo Design, CSS, Website Wireframing, Front-end Development
 - Jezebel: 
