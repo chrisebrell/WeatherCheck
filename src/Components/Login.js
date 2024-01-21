@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
+
 const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState(null)
 
     const handleLogin = async () => {
         try {
@@ -33,14 +36,21 @@ const Login = ({ onLogin }) => {
             // automatic login user after registration
             handleLogin();
         } catch (error) {
+            if (error.response && error.response.status === 400) {
+                setError('This username already exists. Choose a different username')
+            } else {
+                console.error('Error registering user', error.response.data.message)
+                setError('Error registering user.Please Try again')
+            }
             
-            console.error('Error registering user', error.response.data.message)
+            
         }
     }
 
     return (
         <div>
             <h2>Login</h2>
+            {error && <p className="error-message">{error}</p>}
             <label>Username</label>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
 
