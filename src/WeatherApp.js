@@ -5,6 +5,7 @@ import WeatherCard from './WeatherCard';
 import NavBar from './Components/NavBar';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Favorites from './Components/Favorites';
+import Login from './Components/Login';
 import './styles.css'
 import logo from "./images/weathercheck-logo-final.png"
 
@@ -12,7 +13,8 @@ const WeatherApp = () => {
   const [zipCode, setZipCode] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -92,6 +94,17 @@ const WeatherApp = () => {
     getLocation();
   }
 
+    const handleLogin = async (userData) => {
+    
+      setWeatherData(null);
+      setZipCode('');
+
+      setLoggedInUser(userData);
+  }
+
+
+  
+
   return (
     <Router>
       <div className="appContainer">
@@ -105,6 +118,11 @@ const WeatherApp = () => {
           <a href="/">
             <img className="navbarItem" src={logo} alt="weathercheck logo" />
           </a>
+          {loggedInUser && (
+            <button className="navbarItem" onClick={() => setLoggedInUser(null)}>
+              Logout
+            </button>
+          )}
           <input
             className="navbarItem"
             type="text"
@@ -121,24 +139,27 @@ const WeatherApp = () => {
           <NavBar />
         </div>
 
-        <div className="mainContainer">
-          <Routes>
-            <Route
-              path="/favorites"
-              element={<Favorites />}
-            />
-            <Route
-              path="/"
-              element={
-                <>
-                  {error && <p className="error-message">{error}</p>}
-                  {loading && <p>Loading...</p>}
-                  {weatherData && <WeatherCard weatherData={weatherData} />}
-                </>
-              }
-            />
-          </Routes>
-        </div>
+
+        {loggedInUser ? (
+          <div>
+            <p>Welcome, {loggedInUser.username}!</p>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    {error && <p className="error-message">{error}</p>}
+                    {loading && <p>Loading...</p>}
+                    {weatherData && <WeatherCard weatherData={weatherData} />}
+                  </>
+                }
+              />
+              <Route path="/favorites" element={<Favorites />} />
+            </Routes>
+          </div>
+        ) : (
+          <Login onLogin={handleLogin} />
+        )}
       </div>
     </Router>
   );
