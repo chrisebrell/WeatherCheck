@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WeatherCard = ({ weatherData }) => {
+const weatherCard = ({ weatherData }) => {
 
   const getIconUrl = (iconCode) => `http://openweathermap.org/img/w/${iconCode}.png`;
 
@@ -47,4 +47,4 @@ const WeatherCard = ({ weatherData }) => {
   );
 };
 
-export default WeatherCard;
+export default weatherCard;

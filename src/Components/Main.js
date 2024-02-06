@@ -1,14 +1,14 @@
-//Main Component - where all the information is being displayed. This would change based on the different pages that the user is being redirected to
+//main Component - where all the information is being displayed. This would change based on the different pages that the user is being redirected to
 
 //DEPENDENCIES
 import '../styles.css';
 
-function Main() {
+function main() {
     return (
         <div className="container">
-            Main
+            main
         </div>
     )
 }
 
-export default Main
+export default main

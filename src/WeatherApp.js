@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Favorites from './Components/Favorites';
 import Login from './Components/Login';
 import './styles.css'
-import logo from "./images/weathercheck-logo-final.png"
 
+const logo = process.env.PUBLIC_URL + '/images/weathercheck-logo-final.png';
 const WeatherApp = () => {
   const [zipCode, setZipCode] = useState('');
   const [weatherData, setWeatherData] = useState(null);

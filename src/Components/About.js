@@ -1,6 +1,6 @@
 import '../styles.css'
 
-function About() {
+function about() {
     return (
         <h1>
             About page
@@ -8,4 +8,4 @@ function About() {
     )
 }
 
-export default About
+export default about
