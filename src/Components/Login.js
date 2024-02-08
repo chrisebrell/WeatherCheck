@@ -21,8 +21,9 @@ const Login = ({ onLogin }) => {
             //Call the onlogin callback with the user data
             onLogin({ username, userId: response.data.userId })
         } catch (error) {
-
-            console.log('Error during login', error.response.data.message);
+            setError('Invalid username or password. Please try again')
+            console.error('Error during login', error)
+            
         }
     };
     const handleRegister = async () => {

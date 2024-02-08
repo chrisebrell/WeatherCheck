@@ -94,12 +94,23 @@ const WeatherApp = () => {
     getLocation();
   }
 
-    const handleLogin = async (userData) => {
-    
+  const handleLogin = async (userData) => {
+    try {
       setWeatherData(null);
       setZipCode('');
 
       setLoggedInUser(userData);
+        
+    } catch (error) {
+      if (error.response) {
+        console.error('Error response status', error.response.status)
+        setError('Error during login. Please try again')
+      } else {
+        console.error('Error during login', error)
+        setError('Error during login. Please try again')
+      }
+    }
+    
   }
 
 
