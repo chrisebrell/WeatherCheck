@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 
-const login = ({ onLogin }) => {
+const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
@@ -64,4 +64,4 @@ const login = ({ onLogin }) => {
     )
 }
 
-export default login
+export default Login
