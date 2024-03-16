@@ -1,5 +1,4 @@
-# Milestone Project 2 Application Name
-WeatherCheck
+# Milestone Project 2 - WeatherCheck
 
 # Authors:
     Chris Sebrell
